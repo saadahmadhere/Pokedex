@@ -1,0 +1,11 @@
+.nav {
+	background-color: blue;
+	padding: 16px 24px;
+}
+
+.nav-logo {
+	color: #fff;
+	font-size: 24px;
+	font-weight: 700;
+	cursor: pointer;
+}
