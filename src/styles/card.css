@@ -1,0 +1,32 @@
+.card {
+	position: relative;
+	width: 18.75rem;
+	border-radius: 4px;
+	box-sizing: border-box;
+	box-shadow: 4px 4px 12px #d0d0d0;
+	border: 2px solid red;
+}
+
+.card-img {
+	height: 200px;
+	width: 300px;
+	overflow: hidden;
+}
+
+.card-img > * {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.card-about-content {
+	display: flex;
+	justify-content: space-between;
+	padding: 4px 8px;
+}
+
+.card-title {
+	font-size: 16px;
+	font-weight: 600;
+}
