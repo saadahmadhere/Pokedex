@@ -4,13 +4,13 @@ import { v4 as uuidv4 } from 'uuid';
 import '../../styles/mainFeed.css';
 
 const MainFeed = () => {
-	const [arr, setArr] = useState([1, 2, 3, 4, 5, 6]);
+	const [arr, setArr] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 	const [pokemonList, setPokemonList] = useState([]);
 
 	useEffect(() => {
 		const intervalId = setInterval(() => {
 			setArr((prev) => {
-				const newArr = prev.map((prev) => prev + 6);
+				const newArr = prev.map((prev) => prev + 10);
 				return newArr;
 			});
 		}, 5000);
@@ -34,28 +34,6 @@ const MainFeed = () => {
 			setPokemonList((prev) => [...prev, ...res]);
 		})();
 	}, [arr]);
-
-	// console.log(arr);
-	// useEffect(() => {
-	// 	let timeoutId;
-	// 	const fetchPokemon = async (url = '') => {
-	// 		const response = await fetch(
-	// 			url || 'https://pokeapi.co/api/v2/pokemon?limit=2'
-	// 		);
-	// 		const data = await response.json();
-	// 		setPokemonList((prev) => [...prev, ...data.results]);
-
-	// 		if (data.next)
-	// 			timeoutId = setTimeout(() => fetchPokemon(data.next), 5000);
-	// 	};
-
-	// 	fetchPokemon();
-
-	// 	return () => {
-	// 		console.log('console');
-	// 		return clearTimeout(timeoutId);
-	// 	};
-	// }, []);
 
 	return (
 		<div className='main-feed'>

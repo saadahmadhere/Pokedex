@@ -1,11 +1,27 @@
 .nav {
 	background-color: blue;
 	padding: 16px 24px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .nav-logo {
 	color: #fff;
 	font-size: 24px;
 	font-weight: 700;
+	cursor: pointer;
+}
+
+.nav-search {
+	padding: 8px;
+	border: none;
+	border-radius: 8px;
+	width: 50%;
+}
+
+.nav-fav {
+	color: #fff;
+	font-size: 20px;
+	font-weight: 600;
 	cursor: pointer;
 }
