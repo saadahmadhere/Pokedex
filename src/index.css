@@ -12,6 +12,7 @@ code {
 		monospace;
 }
 
-a {
+a,
+button {
 	all: unset;
 }

@@ -1,0 +1,33 @@
+.sort-filters-container {
+	display: flex;
+	background-color: #d3d3d3;
+	width: 100%;
+	padding: 1rem;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.sort-title {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.sort-btn-container {
+	display: flex;
+	gap: 1rem;
+}
+
+.sort-btn-container > * {
+	padding: 8px 16px;
+	background-color: rgb(68, 68, 218);
+	color: #fff;
+	border-radius: 8px;
+	cursor: pointer;
+	font-weight: 500;
+	width: fit-content;
+	align-self: center;
+}
+
+.sort-btn-container > *:hover {
+	opacity: 0.8;
+}

@@ -1,3 +1,9 @@
+.main-feed-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .main-feed {
 	display: flex;
 	flex-wrap: wrap;
