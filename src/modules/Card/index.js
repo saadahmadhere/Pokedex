@@ -14,7 +14,9 @@ const Card = ({ _pokemon }) => {
 	} = _pokemon;
 	const typeList = types.map((type) => type.type.name);
 
-	console.log(imgUrl);
+	const favouritesButtonHandler = () => {
+		console.log('first');
+	};
 	return (
 		<div className='card'>
 			<div className='card-img'>
@@ -42,6 +44,9 @@ const Card = ({ _pokemon }) => {
 					<span className='card-title'>Weight:</span>
 					<span className='card-subtitle'>{weight}</span>
 				</div>
+				<button onClick={() => favouritesButtonHandler()} className='btn-fav'>
+					Add to Favourites
+				</button>
 			</div>
 		</div>
 	);

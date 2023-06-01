@@ -20,6 +20,12 @@
 	overflow: hidden;
 }
 
+.card-about {
+	display: flex;
+	flex-direction: column;
+	padding: 8px 0;
+}
+
 .card-about-content {
 	display: flex;
 	justify-content: space-between;
@@ -29,4 +35,20 @@
 .card-title {
 	font-size: 16px;
 	font-weight: 600;
+}
+
+.btn-fav {
+	all: unset;
+	padding: 8px 16px;
+	background-color: blue;
+	color: #fff;
+	border-radius: 8px;
+	cursor: pointer;
+	font-weight: 500;
+	width: fit-content;
+	align-self: center;
+}
+
+.btn-fav:hover {
+	opacity: 0.8;
 }
