@@ -5,28 +5,15 @@ import Favourites from './screens/Favourites';
 import { useState } from 'react';
 
 function App() {
-	const [favouriteList, setFavouriteList] = useState([]);
+	const [searchTerm, setSearchTerm] = useState('');
 	return (
 		<>
-			<Navbar />
+			<Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 			<Routes>
-				<Route
-					path='/'
-					element={
-						<MainFeed
-							favouriteList={favouriteList}
-							setFavouriteList={setFavouriteList}
-						/>
-					}
-				/>
+				<Route path='/' element={<MainFeed searchTerm={searchTerm} />} />
 				<Route
 					path='/favourites'
-					element={
-						<Favourites
-							favouriteList={favouriteList}
-							setFavouriteList={setFavouriteList}
-						/>
-					}
+					element={<Favourites searchTerm={searchTerm} />}
 				/>
 			</Routes>
 		</>

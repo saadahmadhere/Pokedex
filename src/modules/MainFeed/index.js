@@ -3,7 +3,7 @@ import Card from '../Card';
 import { v4 as uuidv4 } from 'uuid';
 import '../../styles/mainFeed.css';
 
-const MainFeed = () => {
+const MainFeed = ({ searchTerm }) => {
 	const [arr, setArr] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 	const [pokemonList, setPokemonList] = useState([]);
 
@@ -38,9 +38,20 @@ const MainFeed = () => {
 	return (
 		<div className='main-feed'>
 			{pokemonList.length > 0 &&
-				pokemonList.map((pokemon) => (
-					<Card key={uuidv4()} _pokemon={pokemon} />
-				))}
+				pokemonList
+					.filter((pokemon) => {
+						if (searchTerm === '') return pokemon;
+						let isTypePresent = false;
+						const typeList = pokemon.types.map((type) => type.type.name);
+						typeList.forEach((pok) => {
+							if (pok.includes(searchTerm)) isTypePresent = true;
+						});
+						return (
+							pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+							isTypePresent
+						);
+					})
+					.map((pokemon) => <Card key={uuidv4()} _pokemon={pokemon} />)}
 		</div>
 	);
 };
