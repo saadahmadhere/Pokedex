@@ -3,18 +3,50 @@ const SortFilters = ({ pokemonList, setPokemonList }) => {
 	const handleFilterClick = (filterName) => {
 		switch (filterName) {
 			case 'AtoZ':
-				break;
 			case 'ZtoA':
+				setPokemonList((prev) => {
+					const newArr = [...prev];
+					newArr.sort((a, b) => {
+						const nameA = a.name.toUpperCase();
+						const nameB = b.name.toUpperCase();
+						if (nameA < nameB) {
+							return filterName === 'AtoZ' ? -1 : 1;
+						}
+						if (nameA > nameB) {
+							return filterName === 'AtoZ' ? 1 : -1;
+						}
+						return 0;
+					});
+					return newArr;
+				});
 				break;
 			case 'shortToTall':
-				break;
 			case 'tallToShort':
+				setPokemonList((prev) => {
+					const newArr = [...prev];
+					newArr.sort((a, b) =>
+						filterName === 'shortToTall'
+							? a.height - b.height
+							: b.height - a.height
+					);
+
+					return newArr;
+				});
 				break;
 			case 'lightToHeavy':
-				break;
 			case 'heavyToLight':
+				setPokemonList((prev) => {
+					const newArr = [...prev];
+					newArr.sort((a, b) =>
+						filterName === 'lightToHeavy'
+							? a.weight - b.weight
+							: b.weight - a.weight
+					);
+					return newArr;
+				});
 				break;
 			default:
+				return pokemonList;
 		}
 	};
 

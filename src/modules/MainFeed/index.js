@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../Card';
 import { v4 as uuidv4 } from 'uuid';
 import '../../styles/mainFeed.css';
-import SortFilters from '../SortFilters';
 
 const MainFeed = ({ searchTerm }) => {
 	const [arr, setArr] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -21,24 +20,27 @@ const MainFeed = ({ searchTerm }) => {
 
 	useEffect(() => {
 		(async () => {
-			const urlArr = arr.map(
-				(num) => `https://pokeapi.co/api/v2/pokemon/${num}/`
-			);
+			try {
+				const urlArr = arr.map(
+					(num) => `https://pokeapi.co/api/v2/pokemon/${num}/`
+				);
 
-			const promises = urlArr.map(async (url) => {
-				const response = await fetch(url);
-				const data = await response.json();
-				return data;
-			});
+				const promises = urlArr.map(async (url) => {
+					const response = await fetch(url);
+					const data = await response.json();
+					return data;
+				});
 
-			const res = await Promise.all(promises);
-			setPokemonList((prev) => [...prev, ...res]);
+				const res = await Promise.all(promises);
+				setPokemonList((prev) => [...prev, ...res]);
+			} catch (error) {
+				console.error(error.message);
+			}
 		})();
 	}, [arr]);
 
 	return (
 		<div className='main-feed-container'>
-			<SortFilters pokemonList={pokemonList} setPokemonList={setPokemonList} />
 			<div className='main-feed'>
 				{pokemonList.length > 0 &&
 					pokemonList

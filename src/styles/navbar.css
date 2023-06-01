@@ -19,6 +19,11 @@
 	width: 50%;
 }
 
+.nav-links {
+	display: flex;
+	gap: 16px;
+}
+
 .nav-fav {
 	color: #fff;
 	font-size: 20px;

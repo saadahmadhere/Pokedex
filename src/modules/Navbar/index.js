@@ -16,9 +16,14 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
 				value={searchTerm}
 				onChange={(e) => setSearchTerm(e.target.value)}
 			/>
-			<Link to='/favourites'>
-				<span className='nav-fav'>Favourites: {state.length}</span>
-			</Link>
+			<div className='nav-links'>
+				<Link to='/all'>
+					<span className='nav-fav'>All Pokemons</span>
+				</Link>
+				<Link to='/favourites'>
+					<span className='nav-fav'>Favourites: {state.length}</span>
+				</Link>
+			</div>
 		</div>
 	);
 };
