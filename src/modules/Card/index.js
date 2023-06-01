@@ -1,3 +1,4 @@
+import { useFavourite } from '../../contexts/favourites';
 import '../../styles/card.css';
 
 const Card = ({ _pokemon }) => {
@@ -12,11 +13,16 @@ const Card = ({ _pokemon }) => {
 			},
 		},
 	} = _pokemon;
+	const { dispatch, inFavouriteList } = useFavourite();
+
 	const typeList = types.map((type) => type.type.name);
 
-	const favouritesButtonHandler = () => {
-		console.log('first');
-	};
+	const handleAddtoFavourite = () =>
+		dispatch({ type: 'ADD_TO_FAVOURITES', payload: _pokemon });
+
+	const handleRemoveFromfavourite = () =>
+		dispatch({ type: 'REMOVE_FROM_FAVOURITES', payload: name });
+
 	return (
 		<div className='card'>
 			<div className='card-img'>
@@ -44,9 +50,15 @@ const Card = ({ _pokemon }) => {
 					<span className='card-title'>Weight:</span>
 					<span className='card-subtitle'>{weight}</span>
 				</div>
-				<button onClick={() => favouritesButtonHandler()} className='btn-fav'>
-					Add to Favourites
-				</button>
+				{!inFavouriteList(name) ? (
+					<button onClick={handleAddtoFavourite} className='btn-fav'>
+						Add to Favourites
+					</button>
+				) : (
+					<button onClick={handleRemoveFromfavourite} className='btn-fav'>
+						Remove from Favourites
+					</button>
+				)}
 			</div>
 		</div>
 	);

@@ -37,7 +37,6 @@ const MainFeed = () => {
 
 	return (
 		<div className='main-feed'>
-			total: {pokemonList.length}
 			{pokemonList.length > 0 &&
 				pokemonList.map((pokemon) => (
 					<Card key={uuidv4()} _pokemon={pokemon} />

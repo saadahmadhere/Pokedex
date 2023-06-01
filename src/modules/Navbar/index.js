@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import '../../styles/navbar.css';
+import { useFavourite } from '../../contexts/favourites';
 
 const Navbar = () => {
+	const { state } = useFavourite();
 	return (
 		<div className='nav'>
 			<Link to='/'>
@@ -13,7 +15,7 @@ const Navbar = () => {
 				placeholder='Search by pokemon name or type'
 			/>
 			<Link to='/favourites'>
-				<span className='nav-fav'>Favourites</span>
+				<span className='nav-fav'>Favourites: {state.length}</span>
 			</Link>
 		</div>
 	);
